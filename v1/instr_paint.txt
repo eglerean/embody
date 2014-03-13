@@ -1,0 +1,6 @@
+<div style="text-align:justify;font-size:14px">
+In this experiment we study whereabouts in their bodies people feel different emotions. You will be presented with the name of one emotion (such as happiness), and pictures of two blank human bodies. Think carefully what you feel in your body when you feel the corresponding emotion. Your task is to color the bodily regions whose activity you feel changing during the emotion (in this example happiness). For the left body, color the regions whose activity you feel increasing or getting stronger when you feel this emotion and for the right body, color the regions whose activity you feel decreasing or getting weaker when feeling that emotion. You can color any region of the bodies you feel appropriate, from the head to the toes. When you have completed coloring the bodies, click the button at the bottom of the screen to proceed to next page. 
+<br>
+<br>
+Write down your username. If you want to take a break from the experiment, you can continue it by logging on to the system from the front page. 
+</div>

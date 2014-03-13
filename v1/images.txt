@@ -1,0 +1,9 @@
+./EmotionPictures/N1T.jpg
+./EmotionPictures/N2T.jpg
+./EmotionPictures/N3T.jpg
+./EmotionPictures/N4T.jpg
+./EmotionPictures/N5T.jpg
+./EmotionPictures/N6T.jpg
+./EmotionPictures/N7T.jpg
+./EmotionPictures/N8T.jpg
+./EmotionPictures/N9T.jpg

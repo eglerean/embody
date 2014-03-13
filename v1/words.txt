@@ -1,0 +1,14 @@
+Nothing special (neutral)
+Fear
+Anger
+Disgust
+Sadness
+Happiness
+Surprise
+Anxiety
+Love
+Depression
+Contempt
+Pride
+Shame
+Jealousy
