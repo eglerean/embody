@@ -1,4 +1,13 @@
-test 12 3
-second line
+emBODY tool
 
-ciao
+Code by
+Enrico Glerean
+Lauri Nummenmaa
+Juulia Suvilehto
+
+If you use it, please cite: 
+Nummenmaa L., Glerean E., Hari R., Hietanen, J.K. (2013) 
+Bodily maps of emotions, Proceedings of the National Academy of Sciences of United States of America doi:10.1073/pnas.1321664111 
+
+
+Code that is being developed is on this folder. Previous versions are in v0 and v1 subfolders
