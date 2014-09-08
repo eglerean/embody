@@ -1,6 +1,12 @@
 
 The system setup is such that if you only plan to run the basic data gathering, you don't need to touch most of the files. The rest of this file will describe what you can and need to alter to make the system work with your stimuli and in your chosen language.
 
+### INSTALLATION ###
+
+//enrico to add here, but it's basically cloning the subfolder v1 into your apache folder. It should work also in other environments that support PHP5.
+
+### CONFIGURATION ###
+
 settings.php:
 Settings-file includes all possible variables which you can play with, and explains what they do. 
 
@@ -15,5 +21,5 @@ So e.g. a line with 'title || Emotionwords' will convert to title being set to '
 stimuli.txt:
 the current iteration only supports stimuli which are words (paintwords)
 
-ENRICO TODO:
+### ENRICO TODO:
 -inputting variable names to all pagetexts-entries ( i.e. how to bring $helpful into videowordsannotate)
