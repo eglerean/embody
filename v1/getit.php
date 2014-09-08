@@ -1,4 +1,5 @@
 <?php
+// TODO: adding secret key for increased security
 $xt=$_POST['arrX'];
 $yt=$_POST['arrY'];
 $t=$_POST['arrTime'];
