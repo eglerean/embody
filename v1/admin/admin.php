@@ -2,7 +2,7 @@
 include('header.php');
 include('../lib.php');
 $key=trim($_POST['key']);
-if($key=="011235813")
+if($key=="CHANGE_THE_SECRET_KEY")
 {
     ?>
     <h1>Admin page</h1>
