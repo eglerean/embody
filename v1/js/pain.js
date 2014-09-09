@@ -1,3 +1,6 @@
+// Original code found online as a tutorial on HTML5 spray painting. Online page is not available anymore
+// Modified version by Enrico Glerean 2013
+
 /* ------------------
 | START / STOP / SETUP
 ------------------ */
@@ -55,7 +58,7 @@ function spraycan() {
 	/* ------------------
 	| COLOUR PICKER
 	------------------ */
-	/*
+	/* Original code not included in this application // Enrico removed
 	var cp = document.createElement('table');
 	with($(cp)) {
 		attr('id', 'colourPicker');
