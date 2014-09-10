@@ -69,3 +69,5 @@ rp_ps1_err || Psychologist information missing
 rp_ps2_err || Psychiatrist information missing
 rp_ps3_err || Neurologist information missing
 
+# Other strings below
+contact_email || enrico.glerean_at_aalto.fi

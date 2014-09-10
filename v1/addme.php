@@ -1,4 +1,5 @@
 <?php
+include('settings.php');
 include('lib.php');
 $data="";
 // check that we have all variables
@@ -37,7 +38,7 @@ while($ok==0)
         {               
             system("chmod 777 subjects/$random/",$ret);
             if($ret!=0)
-                die("There was a disk error. Please email enrico.glerean@aalto.fi");
+                die("There was a disk error. Please email ".$pagetexts['contact_email']);
         }
     }
 }
@@ -45,12 +46,12 @@ while($ok==0)
 $techdata=var_export($_SERVER,TRUE);
 
 $file="subjects/$random/data.txt";
-$fh = fopen($file, 'w') or die("There was a disk error. Please email enrico.glerean@aalto.fi");
+$fh = fopen($file, 'w') or die("There was a disk error. Please email ".$pagetexts['contact_email']);
 fwrite($fh, $data);
 fclose($fh);
 
 $file="subjects/$random/techdata.txt";
-$fh = fopen($file, 'w') or die("There was a disk error. Please email enrico.glerean@aalto.fi");
+$fh = fopen($file, 'w') or die("There was a disk error. Please email ".$pagetexts['contact_email']);
 fwrite($fh, $techdata);
 fclose($fh);
 
