@@ -1,6 +1,6 @@
 <?php 
 include('settings.php');
-echo "<pre>"
+echo "<pre>";
 echo "Performing installation checks for emBODY tool";
 echo "current folder: ".getcwd();
 echo "folder specified in settings.php: ".$path;
