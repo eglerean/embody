@@ -3,7 +3,16 @@ The system setup is such that if you only plan to run the basic data gathering, 
 
 ### INSTALLATION ###
 
-//enrico to add here, but it's basically cloning the subfolder v1 into your apache folder. It should work also in other environments that support PHP5.
+Installation from the terminal of a Linux-like distribution (i.e. it works on Linux and Mac). In case the user does not have access to a terminal, the files can be downloaded from the web and then the content of the subfolder v1 moved to the public documents folder (= the folder of your webserver that is accessible from the web).
+
+1. go to your local folder where you wish to store the git project
+2. type
+  git clone https://git.becs.aalto.fi/eglerean/embody.git 
+  [it can also be done via ssh, google to find how to]
+3. copy the subfolder v1 to the folder where you have your public documents. The final url of the experiment is now http://name.of.your.server/v1/ . You can rename the folder v1 with your favourite acronym
+4. edit the file settings.php inside the folder v1:
+	i. in line 3: replace
+
 
 ### CONFIGURATION ###
 
