@@ -1,4 +1,4 @@
-emBODY tool
+# emBODY tool #
 
 Code by
 Enrico Glerean
@@ -9,4 +9,7 @@ If you use it, please cite:
 Nummenmaa L., Glerean E., Hari R., Hietanen, J.K. (2013) 
 Bodily maps of emotions, Proceedings of the National Academy of Sciences of United States of America doi:10.1073/pnas.1321664111 
 
-Stable version is in subfolder v1. Experimental versions are in more recent subfolders. Instructions are in the readme file of the corresponding subfolder.
+Stable version is in subfolder v1. Experimental versions are in more recent subfolders. 
+
+# SETTING UP #
+Instructions are in the readme file of the corresponding subfolder.
