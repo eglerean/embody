@@ -11,7 +11,11 @@ Installation from the terminal of a Linux-like distribution (i.e. it works on Li
   [it can also be done via ssh, google to find how to]
 3. copy the subfolder v1 to the folder where you have your public documents. The final url of the experiment is now http://name.of.your.server/v1/ . You can rename the folder v1 with your favourite acronym
 4. edit the file settings.php inside the folder v1:
-	i. in line 4: variable $path should point to where the folder is
+	i. in line 4: variable $path should point to where the folder is on the server
+5. create a subfolder "subjects" and make sure that it is writable by the server by doing
+	chmod 777 subjects
+   This is because the data is stored on the disk, and not on a database.
+
 
 
 ### CONFIGURATION ###
