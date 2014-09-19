@@ -49,7 +49,8 @@
 <img style="width:480px;margin-top:10px;border:2px solid black;" src="<?php echo $stimulusimage;?>">
 </div>
 <?php }elseif($type == 'paintwords'){?>
-<h1 style="margin-top:50px;"><?php echo $stimuli[$p];?></h1>
+<div style="z-index:10000000;position:relative;width:480px;margin:210px;margin-top:50px;border:0px solid black;font-size:22px;">
+<?php echo $stimuli[$p];?></div>
 </div>
 <?php }?>
 
