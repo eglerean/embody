@@ -2,7 +2,7 @@
 include_once('lib.php');
 //this is the only part you should need to change when setting up a new experiment. Also, read the readme.txt to figure out which textfiles you need to put in $path location.
     
-    $path="/var/www/emotion.becs.aalto.fi/emotion_words/"; // set this to point to your Apache root directory
+    $path="/var/www/bml.becs.aalto.fi/emBODYdemo/"; // set this to point to your Apache root directory
     
     //possible types at this moment are : form, video annotator, painting with words, painting with images, painting with audiofile
     $type =         'paintwords';       // $type has to be one of the following: "paintwords", "paintimages" (remember quotes) // TODO: add code for videos/audio
