@@ -1,6 +1,6 @@
 <?php
-include('settings.php');
-include('lib.php');
+include_once('settings.php');
+include_once('lib.php');
 $data="";
 // check that we have all variables
 $keys=array('sex','age','weight','height','hand','education','psychologist','psychiatrist','neurologist');
