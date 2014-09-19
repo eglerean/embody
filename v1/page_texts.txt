@@ -47,6 +47,8 @@ rp_female || Female
 rp_age || Age
 rp_weight || Weight
 rp_height || Height
+rp_kg || Kg
+rp_cm || cm
 rp_handedness || Handedness
 rp_left || Left
 rp_right || Right
