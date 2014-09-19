@@ -183,3 +183,12 @@ b{
     margin-bottom:0px;
     background-color: #C0C0C0;
 }
+
+.wordsbox {
+	z-index:10000000;
+	position:relative;
+	width:480px;
+	margin:210px;
+	margin-top:50px;
+	font-size:22px;
+}
