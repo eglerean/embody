@@ -54,8 +54,7 @@
 </div>
 <?php }?>
 
-
-<div id="pbox" onSelectStart="this.style.cursor='crosshair'; return false;">
+<div id="pbox">
     <div id="pbox1">
     </div>
     <div id="pbox1L">
@@ -72,6 +71,12 @@
 <!--- navigation -->
 
 </div>
+
+<script type="text/javascript">
+        var temp=document.getElementById("pbox");
+        temp.onselectstart = function() { this.style.cursor='crosshair'; return false; }
+</script>
+
 
 <div id = "footer">
 
