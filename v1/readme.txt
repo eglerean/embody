@@ -34,5 +34,22 @@ So e.g. a line with 'title || Emotionwords' will convert to title being set to '
 stimuli.txt:
 the current iteration only supports stimuli which are words (paintwords)
 
+
+### FAQ ###
+
+1) Q: You run 'system' calls from PHP and my server administrator does not allow PHP with system calls. Can we have a version without 'system'?
+A: Although the calls in the code are not a security issue, administrators have always good reasons to be paranoid. The paranoia-free solution is to host the virtualhost on a machine that serves only that purpose (i.e. not part of the intranetwork of your dept). This is a good practice with any website anyway. Future versions of emBODY will remove all instances of 'system'.
+
+2) Q: The interface gives the following error: "There was an error with saving the data. Please report the error to enrico.glerean@aalto.fi". How can I fix it?
+A: make sure that this is not a permission error (see Installation point 5 above). Then, the problem is with default Apache settings on the size of POST variables. The tool sends all data at once through a POST. You can check the error.log of your apache and you should be able to see something like:
+"[error] [client ::1] PHP Warning: Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini."
+To fix it, please add the following line to php.ini and restart Apache:
+	max_input_vars = 2147483648
+
+If you use fcgi to process php, the line to add to the fcgi module configuration is:
+	FcgidMaxRequestLen 2147483648
+
+
+
 ### ENRICO TODO:
 -inputting variable names to all pagetexts-entries ( i.e. how to bring $helpful into videowordsannotate)
