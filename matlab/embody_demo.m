@@ -2,7 +2,7 @@
 %
 % - Please note that there are hard-coded parameters related to our
 % experiment version. If you modify the graphic layout of the web tool you
-% will need to change also how matlab loads the data
+% will need to change also how matlab preprocesses the data
 % - In our experiment we treated the left part of the screen as positive
 % values and the right part as negative values, and performed a subtraction
 % between the two. You are free to use the whole painting area and you
@@ -11,6 +11,8 @@
 % - The demo uses the function load_subj, make sure it is in your path
 % - It should be easy to rewrite this in python for those without a Matlab
 % license.
+%
+% Code by Enrico Glerean and Lauri Nummenmaa
 
 
 % let's begin
@@ -23,9 +25,24 @@ subjects=dir([basepath '/*']);
 
 % the base image used for painting (in our case only one sided since we
 % subtract values)
-base=
-
-
+base=uint8(imread('base.png'));
+base2=base(10:531,33:203,:); % single image base
+labels={'Neutral'
+'Fear'
+'Anger'
+'Disgust'
+'Sadness'
+'Happiness'
+'Surprise'
+'Anxiety'
+'Love'
+'Depression'
+'Contempt'
+'Pride'
+'Shame'
+'Jealousy'
+};
+mask=imread('mask.png');
 
 % for each subject, load data
 for s=1:length(subjects)
@@ -35,7 +52,7 @@ for s=1:length(subjects)
     %% Data loading
     % let's load the subject's answers into a variable a
     data=load_subj([basepath '/' subjects(s).name],2);
-    NC=length(a); % number of conditions
+    NC=length(data); % number of conditions
     
     %% Painting reconstruction
     % 'data' now contains all mouse movements. What we need are the mouse
@@ -43,12 +60,12 @@ for s=1:length(subjects)
     % Furthermore, the painting tool has a brush size. We recreate that
     % using image filter
     
-    for n=1:S;
-        T=length(a(n).paint(:,2)); % number of mouse locations
+    for n=1:NC;
+        T=length(data(n).paint(:,2)); % number of mouse locations
         over=zeros(size(base,1),size(base,2)); % empty matrix to reconstruct painting
         for t=1:T
-            y=ceil(a(n).paint(t,3)+1);
-            x=ceil(a(n).paint(t,2)+1);
+            y=ceil(data(n).paint(t,3)+1);
+            x=ceil(data(n).paint(t,2)+1);
             if(x<=0) x=1; end
             if(y<=0) y=1; end
             if(x>=900) x=900; end % hardcoded for our experiment, you need to change it if you changed layout
@@ -63,10 +80,60 @@ for s=1:length(subjects)
         over2=over(10:531,33:203,:)-over(10:531,696:866,:);
         resmat(:,:,n)=over2;
     end
-    % store result (commented)
+    %% store result (commented)
     % save([subjects(s).name '_preprocessed.mat'],'resmat')
     
-    % visualize subject's data
+    %% visualize subject's data
+    M=max(abs(resmat(:))); % max range for colorbar
+    NumCol=64;
+    hotmap=hot(NumCol);
+    coldmap=flipud([hotmap(:,3) hotmap(:,2) hotmap(:,1) ]);
+    hotcoldmap=[
+        coldmap
+        hotmap
+    ];
+
+    % note that - for statistical maps - if you want to hide non
+    % significant values and show them as black, you need to tweak the
+    % colormap so that you have more rows of black between around the
+    % non-significant interval. 
+    % As an example if we had a threshold, uncomment the below
+    if(0)
+        th=0.2*M; % just an example threshold, since this is not a statistical map 
+        non_sig=round(th/M*NumCol); % proportion of non significant colors
+        hotmap=hot(NumCol-non_sig);
+        coldmap=flipud([hotmap(:,3) hotmap(:,2) hotmap(:,1) ]);
+        hotcoldmap=[
+            coldmap
+            zeros(2*non_sig,3);
+            hotmap
+        ];
+    end
+    
+    
+    for n=1:NC
+        figure(s)
+        subplot(2,8,n)
+        imagesc(base2);
+        axis('off');
+        set(gcf,'Color',[1 1 1]);
+        hold on;
+        over2=resmat(:,:,n);
+        fh=imagesc(over2,[-M,M]);
+        axis('off');
+        axis equal
+        colormap(hotcoldmap);
+        set(fh,'AlphaData',mask)
+        title(labels(n),'FontSize',14)
+        if(n==NC) 
+            subplot(2,8,n+1)
+            fh=imagesc(ones(size(base2)),[-M,M]);
+            axis('off');
+            colorbar;
+            % save a screenshot, useful for quality control (commented)
+            %saveas(gcf,[subjects(s).name '.png'])
+        end
+    end
 end
 
 
