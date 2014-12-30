@@ -11,5 +11,5 @@ Bodily maps of emotions, Proceedings of the National Academy of Sciences of Unit
 
 Stable version is in subfolder v1. Experimental versions are in more recent subfolders. 
 
-# SETTING UP #
-Instructions are in the readme file of the corresponding subfolder.
+# HOW TO #
+Instructions are in the readme file of the corresponding subfolder. There you will also find a small FAQ list to solve some setting up issues. Matlab code is in the matlab subfoloder. It contains few demo subjects and a small scripts to load the data, preprocess it and visualize it.
