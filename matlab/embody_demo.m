@@ -13,7 +13,8 @@
 % license.
 %
 % Code by Enrico Glerean and Lauri Nummenmaa
-
+%
+% Thanks to Laura Harrison @ caltech for useful feedback
 
 % let's begin
 close all
@@ -111,9 +112,14 @@ for s=1:length(subjects)
     end
     
     
+	% visualize all responses for each subject into a grid of numcolumns
+	plotcols = 7; %set as desired
+    plotrows = ceil((NC+1)/plotcols); % number of rows is equal to number of conditions+1 (for the colorbar)
+
+
     for n=1:NC
         figure(s)
-        subplot(2,8,n)
+        subplot(plotrows,plotcols,n)
         imagesc(base2);
         axis('off');
         set(gcf,'Color',[1 1 1]);
@@ -124,9 +130,9 @@ for s=1:length(subjects)
         axis equal
         colormap(hotcoldmap);
         set(fh,'AlphaData',mask)
-        title(labels(n),'FontSize',14)
+        title(labels(n),'FontSize',10)
         if(n==NC) 
-            subplot(2,8,n+1)
+            subplot(plotrows,plotcols,n+1)
             fh=imagesc(ones(size(base2)),[-M,M]);
             axis('off');
             colorbar;
