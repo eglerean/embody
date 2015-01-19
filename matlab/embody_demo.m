@@ -82,7 +82,7 @@ for s=1:length(subjects)
         resmat(:,:,n)=over2;
     end
     %% store result (commented)
-    % save([subjects(s).name '_preprocessed.mat'],'resmat')
+    save(['preprocessed/' subjects(s).name '_preprocessed.mat'],'resmat')
     
     %% visualize subject's data
     M=max(abs(resmat(:))); % max range for colorbar
