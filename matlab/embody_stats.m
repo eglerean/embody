@@ -6,7 +6,7 @@ close all
 
 
 %% mask (we consider only pixels inside the mask for multiple comparisons)
-mask=double(imread('mask.png'));;
+mask=imread('mask.png');
 in_mask=find(mask>128); % list of pixels inside the mask
 
 
@@ -40,8 +40,80 @@ P        = 1-cdf('T',alltdata,df);  % p values
 tID      = icdf('T',1-pID,df);      % T threshold, indep or pos. correl.
 tN       = icdf('T',1-pN,df) ;      % T threshold, no correl. assumptions
 
-% and then plot results from tdata setting the T thresholds identified.
-% Enrico to add here demo T-map plot (it needs more demo subjects though to
-% reach significance)
+%% plot tmaps
+
+M=15; % max range for colorbar
+NumCol=64;
+
+
+th=tID; % if tID is null, you need to use an uncorrected T-value threshold.
+if(isempty(th)) 
+    % using uncorrected T-value threshold
+    th=3; 
+end
+
+non_sig=round(th/M*NumCol); % proportion of non significant colors
+hotmap=hot(NumCol-non_sig);
+coldmap=flipud([hotmap(:,3) hotmap(:,2) hotmap(:,1) ]);
+hotcoldmap=[
+    coldmap
+    zeros(2*non_sig,3);
+    hotmap
+    ];
+
+% reshaping the tvalues into images
+tvals_for_plot=zeros(size(mask,1),size(mask,2),NC);
+for condit=1:NC
+    temp=zeros(size(mask));
+    temp(in_mask)=tdata(:,condit);
+    temp(find(~isfinite(temp)))=0; % we set nans and infs to 0 for display
+    max(temp(:))
+    tvals_for_plot(:,:,condit)=temp;
+end
+
+% plotting
+plotcols = 7; %set as desired
+plotrows = ceil((NC+1)/plotcols); % number of rows is equal to number of conditions+1 (for the colorbar)
+base=uint8(imread('base.png'));
+base2=base(10:531,33:203,:); % single image base
+labels={'Neutral'
+'Fear'
+'Anger'
+'Disgust'
+'Sadness'
+'Happiness'
+'Surprise'
+'Anxiety'
+'Love'
+'Depression'
+'Contempt'
+'Pride'
+'Shame'
+'Jealousy'
+};
+for n=1:NC
+    figure(100)
+    subplot(plotrows,plotcols,n)
+    imagesc(base2);
+    axis('off');
+    set(gcf,'Color',[1 1 1]);
+    hold on;
+    over2=tvals_for_plot(:,:,n);
+    fh=imagesc(over2,[-M,M]);
+    axis('off');
+    axis equal
+    colormap(hotcoldmap);
+    set(fh,'AlphaData',mask)
+    title(labels(n),'FontSize',10)
+    if(n==NC)
+        subplot(plotrows,plotcols,n+1)
+        fh=imagesc(ones(size(base2)),[-M,M]);
+        axis('off');
+        colorbar;
+    end
+end
+
+
+
 
 
