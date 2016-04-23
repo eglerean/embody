@@ -8,5 +8,5 @@ Instructions are in the readme file of the corresponding subfolder. There you wi
 
 ## CITE
 If you use it, please cite: 
-Nummenmaa L., Glerean E., Hari R., Hietanen, J.K. (2013) 
+Nummenmaa L., Glerean E., Hari R., Hietanen, J.K. (2014) 
 Bodily maps of emotions, Proceedings of the National Academy of Sciences of United States of America doi:10.1073/pnas.1321664111 
