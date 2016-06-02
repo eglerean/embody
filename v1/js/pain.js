@@ -292,6 +292,7 @@ function draw(e){
 			addClass('spraycan');
 			
 		}
+		div.setAttribute('id', divIdName);
 		$(groupHolder).append(div);
 	}
 	$("#pbox").append(groupHolder);
