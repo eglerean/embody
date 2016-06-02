@@ -176,6 +176,7 @@ function spraycan() {
 	------------------ */
 	
 	$("#pbox").mousedown(function(e) {
+		strokelength.push(0);
 		if (!ac.stopped) { draw(e); $("#pbox").bind('mousemove', draw); }
 		arrMD.push(e.timeStamp);
 	});
@@ -231,6 +232,9 @@ function rgbToHex(hex) {
 function draw(e){
 	if (spraycan.movingCP) return;
 	var groupHolder = document.createElement('div');
+	var divIdName = 'brushstroke'+currentstroke+'Div';
+	currentstroke = currentstroke + 1;
+	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
 	var xd=e.pageX -xp;
 	var yd=e.pageY -yp;
 	arrXD.push(xd);
@@ -266,4 +270,24 @@ function draw(e){
 	}
 	$("#pbox").append(groupHolder);
 	
+}
+
+//Global variables which store the length of each stroke, for undoing purposes
+var strokelength = [];
+var currentstroke = 0;
+
+/* ------------------
+| UNDO FUNC
+------------------ */
+
+function undo(e){
+    for(var i=1; i <= strokelength[strokelength.length - 1]; i++){
+        var stroke = document.getElementById('brushstroke'+(currentstroke - i)+'Div')
+        stroke.parentNode.removeChild(stroke);
+        arrYD.pop();
+        arrXD.pop();
+        arrTimeD.pop();
+    }  
+    currentstroke = currentstroke - strokelength[strokelength.length - 1];
+    if (strokelength.length > 1) strokelength.pop();
 }
