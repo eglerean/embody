@@ -12,6 +12,8 @@
 		<script type="text/javascript" src="js/common.js"></script> 
 		<script type="text/javascript" src="js/99.js"></script> 
 		<script type="text/javascript" src="js/pain.js"></script> 
+		<script type="text/javascript" src="js/touch_handler.js"></script>
+		<script type='application/javascript' src='js/fastclick.js'></script> 
 	
 		<style type="text/css">
 
