@@ -253,8 +253,16 @@ function draw(e){
 	var divIdName = 'brushstroke'+currentstroke+'Div';
 	currentstroke = currentstroke + 1;
 	strokelength[strokelength.length - 1] = strokelength[strokelength.length - 1] + 1;
-	var xd=e.pageX -xp;
-	var yd=e.pageY -yp;
+	if (e.type == "touchmove") {
+		var xd=e.originalEvent.touches[0].pageX -xp;
+		var yd=e.originalEvent.touches[0].pageY -yp; 		
+	} else if (e.type == "touchstart"){
+		var xd=e.touches[0].pageX -xp;
+		var yd=e.touches[0].pageY -yp;
+	} else {
+		var xd = e.pageX - xp;
+		var yd = e.pageY - yp;	
+	}
 	arrXD.push(xd);
     arrYD.push(yd);
     arrTimeD.push(e.timeStamp);
