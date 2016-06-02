@@ -86,15 +86,6 @@
 
 <form action="#"><input type="button" style="color:#f00;cursor:pointer;background:#ddd;font-size:20px;padding:1px;font-weight:bold;margin-top:10px;margin-left:10px;" value=<?php echo $pagetexts['delete'];?>  onClick="history.go()"></form>
 
-<?php
-    if ($enableUndo == 1) {
-        $undoStyle = "color:#00f;cursor:pointer;background:#ddd;font-size:20px;padding:1px;font-weight:bold;margin-top:10px;margin-left:10px;"; }
-    else {
-        $undoStyle = "visibility:hidden;"; }
-?>
-
-<form action="#"><input type="button" style= <?php echo $undoStyle;?> value=<?php echo $pagetexts['undo'];?> onClick="undo()" on("tap", undo) id ="undo_button"></form>
-
 <script type="text/javascript" >
 
 // $("span:first").text('ac '+spraycan);
