@@ -53,6 +53,12 @@ function spraycan() {
 			ac.movingCP = false;
 			$(document).unbind('mousemove', moveCP);
 		});
+		addEventListener('touchstart', function(e){ 
+			ac.movingCP = false;
+		});
+		addEventListener('touchend', function(e){
+			ac.movingCP = true;
+		});
 	}
 	
 	/* ------------------
@@ -184,6 +190,18 @@ function spraycan() {
 		if (!ac.stopped) $("#pbox").bind('mousemove', draw); $("#pbox").unbind('mousemove', draw);
 		arrMU.push(e.timeStamp);
 	});
+	var pbox = document.getElementById("pbox");
+	pbox.addEventListener('touchstart', function(e){
+	    e.preventDefault();
+	    strokelength.push(0);
+	    if (!ac.stopped) { draw(e); $("#pbox").bind('touchmove', draw); }
+	        arrMD.push(e.timeStamp);
+    });
+    pbox.addEventListener('touchend', function(e){
+	    e.preventDefault();
+	    if (!ac.stopped) $("#pbox").bind('touchmove', draw); $("#pbox").unbind('touchmove', draw);
+	        arrMU.push(e.timeStamp);
+    });
 	
 	
 	/* ------------------
