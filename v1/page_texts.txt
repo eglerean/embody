@@ -25,9 +25,6 @@ forward || Click here when done
 'delete' button empties the filled in annotation page (i.e. the user starts over for that stimulus)
 delete || Reset
 
-'undo' button undoes the last full drawn stroke
-undo || Kumita
-
 'left_label' shows underneath the left-hand side picture in annotation page
 left_label || For this body, color the regions whose activity you feel increasing or getting stronger
 
